@@ -10,4 +10,9 @@ import model
 import server
 
 os.system('dropdb ratings')
-# More code will go here
+os.system('createdb ratings')
+model.connect_to_db(server.app)
+model.db.create_all()
+
+with open('data/movies.json') as f:
+    movie_data = json.loads(f.read())
