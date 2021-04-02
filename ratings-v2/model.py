@@ -53,7 +53,7 @@ class Rating(db.Model):
                         autoincrement=True,
                         primary_key=True
                         )
-    score = db.Column(db.Integer, nullable=False)
+    score = db.Column(db.Integer)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
