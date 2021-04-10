@@ -59,6 +59,13 @@ def get_user_by_id(user_id):
     return User.query.get(user_id)
 
 
+def get_user_by_email(email):
+    """Get user by email."""
+    
+    # print('Get version' User.query.get(email))  This doesn't work. Why not? Is it because GET needs to go with Primary Key?
+    return User.query.filter(User.email == email).first() # Why use filter rather than the GET query on line#59?
+
+
 
 if __name__ == '__main__':
     from server import app
