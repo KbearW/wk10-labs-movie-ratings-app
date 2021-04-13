@@ -74,8 +74,7 @@ def check_user():
     if user:
         if password == user.password:
             session['user_id'] = user.user_id
-            # print(user.user_id)
-            # print(session['user_id'])
+            flash(f"You have been successfully logged in!")
             return render_template('loginpage.html', user=user, movies=movies)
         else:
             flash(f"Wrong password. It should be: {user.password}.")
@@ -94,7 +93,7 @@ def process_rating():
 
     #Have rating, need to use Session to track user and movie
     crud.create_rating(user, movie, rating)
-    return redirect('/users/<user_id>')
+    return redirect(f'/users/{user_id}')
 
 
 @app.route('/users/<new_user>')
